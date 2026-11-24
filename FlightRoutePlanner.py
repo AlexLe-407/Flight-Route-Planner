@@ -1,7 +1,7 @@
 import networkx as nx
 
 flights = {
-    "MCI": {"DFW": 983, "DEN": 533, "ORD": 403, "ATL": 692, "BWI": 963},
+    "MCI": {"DFW": 460, "DEN": 533, "ORD": 403, "ATL": 692, "BWI": 963},
     "DFW": {"ORD": 802, "ATL": 731, "LAX": 1232, "IAH": 224 },
     "DEN": {"MCI": 533, "LAX": 862, "ORD": 888, "SLC": 391},
     "ORD": {"DFW": 802, "JFK": 740, "ATL": 606, "BOS": 867},
