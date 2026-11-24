@@ -1,12 +1,12 @@
 import networkx as nx
 
 flights = {
-    "MCI": {"DFW": 460, "DEN": 533, "ORD": 403, "ATL": 692, "BWI": 630},
-    "DFW": {"ORD": 802, "ATL": 731, "LAX": 1235, "IAH": 224 },
+    "MCI": {"DFW": 983, "DEN": 533, "ORD": 403, "ATL": 692, "BWI": 963},
+    "DFW": {"ORD": 802, "ATL": 731, "LAX": 1232, "IAH": 224 },
     "DEN": {"MCI": 533, "LAX": 862, "ORD": 888, "SLC": 391},
     "ORD": {"DFW": 802, "JFK": 740, "ATL": 606, "BOS": 867},
     "ATL": {"MCI": 692, "ORD": 606, "MIA": 594, "CLT": 226},
-    "LAX": {"DEN": 862, "JFK": 2775, "SFO": 337, "SEA": 954},
+    "LAX": {"DEN": 862, "JFK": 2470, "SFO": 337, "SEA": 954},
     "JFK": {"ATL": 760, "ORD": 740, "BOS": 187, "MIA": 1090},
     "SEA": {"LAX": 954, "SFO": 679, "DEN": 1024, "PDX": 129},
     "SFO": {"LAX": 337, "SEA": 679, "DEN": 967, "PHX": 651},
@@ -187,6 +187,7 @@ def main():
             print("Invalid Option")
 
 main()
+
 
 
 
