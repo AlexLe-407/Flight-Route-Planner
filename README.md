@@ -5,4 +5,4 @@ Alex Le and Dantae Friley
 An airport flight routing algorithm that finds the shortest route between two airports, identifys airport hubs, and finds the unreachable hubs of a given airport
 
 # Running Program
-python main.py and follow the menu to select the action of the program
+python main.py and follow the menu to select number of the action you want.
