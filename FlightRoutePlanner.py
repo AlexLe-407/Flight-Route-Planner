@@ -1,4 +1,5 @@
 import networkx as nx
+import matplotlib.pyplot as plt
 
 flights = {
     "MCI": {"DFW": 460, "DEN": 533, "ORD": 403, "ATL": 692, "BWI": 963},
@@ -28,6 +29,12 @@ flight_graph = nx.DiGraph()
 for airport in flights:
     for destination, distance in flights[airport].items():
         flight_graph.add_edge(airport, destination, weight = distance)
+
+'''Displays the visual representation of the flight graph'''
+def display_visual_flight_paths(flight_graph):
+    node_positions = nx.spring_layout(flight_graph)
+    nx.draw(flight_graph, pos = node_positions, edge_color = "blue", width = 1, with_labels = True, arrows = True)
+    plt.show()
 
 '''Displays all the available flights from each airport and the distance to travel'''
 def display_flight_paths(flights):
@@ -146,45 +153,54 @@ def find_unreachable(graph, source):
     else:
         print(f"Unreachable airports from {source}: {unreachable}")
 
+'''Displays the user interface where user is given the option to choose an action'''
 def main():
-
 
     while True:
 
         print("======================")
         print("Flight Route Planner")
         print("======================")
-        print("1. Display Available Airports")
-        print("2. Find Shortest Route")
-        print("3. Identify Airport Hubs")
-        print("4. Find Unreachable Airports")
-        print("5. Exit")
+        print("1. Display Visual Flight Graph")
+        print("2. Display Available Airports")
+        print("3. Find Shortest Route")
+        print("4. Identify Airport Hubs")
+        print("5. Find Unreachable Airports")
+        print("6. Exit")
         
-        choice = int(input("Enter your choice: "))
+        try:
+            choice = int(input("Enter your choice: "))
+        except ValueError:
+            print("Invalid input. Please enter a number between 1 and 6.\n")
+            continue
 
         if (choice == 1):
+            display_visual_flight_paths(flight_graph)
+            print("")
+        elif (choice == 2):
             display_flight_paths(flights)
             print("")
 
-        elif (choice == 2):
+        elif (choice == 3):
             starting_choice = input("Enter the outgoing airport: ")
             destination_choice = input("Enter the destination airport: ")
             dijkstra(starting_choice, destination_choice)
             print("")
 
-        elif (choice == 3):
+        elif (choice == 4):
             identify_hubs()
             print("")
 
-        elif (choice == 4):
+        elif (choice == 5):
             unreachable_choice = input("Enter the airport code to find unreachable airports: ")
             find_unreachable(flight_graph, unreachable_choice)
             print("")
 
-        elif (choice == 5):
+        elif (choice == 6):
             break
         else:
-            print("Invalid Option")
+            print("Invalid Option\n")
+
 
 main()
 
